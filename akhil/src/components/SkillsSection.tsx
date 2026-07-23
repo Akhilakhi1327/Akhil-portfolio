@@ -1,168 +1,163 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Code, Database, Globe, Users, Zap, Brain } from "lucide-react";
+import React from "react";
+import { motion } from "framer-motion";
+import { Sparkles, Code2, Cpu, Database, Wrench, Layers } from "lucide-react";
 
-const SkillsSection = () => {
-  const skillCategories = [
+interface SkillCategory {
+  title: string;
+  category: string;
+  icon: React.ReactNode;
+  accent: string;
+  borderColor: string;
+  skills: {
+    name: string;
+    iconUrl: string;
+  }[];
+}
+
+const SkillsSection: React.FC = () => {
+  const categories: SkillCategory[] = [
     {
       title: "Programming Languages",
-      icon: <Code className="w-6 h-6" />,
-      color: "text-blue-400",
-      bgColor: "bg-blue-400/10",
-      skills: ["Python", "C++", "JavaScript", "HTML5", "CSS3", "SQL"]
+      category: "LANGUAGES",
+      icon: <Code2 className="w-5 h-5 text-cyan-400" />,
+      accent: "from-cyan-500/20 to-blue-500/10",
+      borderColor: "border-cyan-500/30",
+      skills: [
+        { name: "C++", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" },
+        { name: "Python", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+        { name: "Java", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" },
+        { name: "JavaScript", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+        { name: "TypeScript", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
+        { name: "HTML5", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
+        { name: "CSS3", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
+      ]
     },
     {
       title: "Frameworks & Libraries",
-      icon: <Globe className="w-6 h-6" />,
-      color: "text-green-400",
-      bgColor: "bg-green-400/10",
-      skills: ["React.js", "Node.js", "Express.js", "Django", "Redux", "Tailwind CSS"]
+      category: "FRAMEWORKS",
+      icon: <Cpu className="w-5 h-5 text-purple-400" />,
+      accent: "from-purple-500/20 to-pink-500/10",
+      borderColor: "border-purple-500/30",
+      skills: [
+        { name: "React.js", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+        { name: "Node.js", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
+        { name: "Express.js", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" },
+        { name: "Redux Toolkit", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" },
+        { name: "Tailwind CSS", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" },
+        { name: "Bootstrap", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" },
+        { name: "Django", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" },
+      ]
     },
     {
       title: "Databases & Tools",
-      icon: <Database className="w-6 h-6" />,
-      color: "text-purple-400",
-      bgColor: "bg-purple-400/10",
-      skills: ["MongoDB", "MySQL", "Git", "GitHub", "VS Code", "Postman"]
+      category: "DATABASES & TOOLS",
+      icon: <Database className="w-5 h-5 text-emerald-400" />,
+      accent: "from-emerald-500/20 to-cyan-500/10",
+      borderColor: "border-emerald-500/30",
+      skills: [
+        { name: "MongoDB", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
+        { name: "MySQL", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
+        { name: "Git", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
+        { name: "GitHub", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" },
+        { name: "Postman", iconUrl: "https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" },
+        { name: "REST APIs", iconUrl: "https://cdn-icons-png.flaticon.com/512/1014/1014224.png" },
+        { name: "JWT Auth", iconUrl: "https://jwt.io/img/pic_logo.svg" }
+      ]
     },
     {
-      title: "AI/ML & Data Science",
-      icon: <Brain className="w-6 h-6" />,
-      color: "text-orange-400",
-      bgColor: "bg-orange-400/10",
-      skills: ["TensorFlow", "Scikit-learn", "Pandas", "NumPy", "Machine Learning", "Data Analysis"]
-    },
-    {
-      title: "Soft Skills",
-      icon: <Users className="w-6 h-6" />,
-      color: "text-pink-400",
-      bgColor: "bg-pink-400/10",
-      skills: ["Leadership", "Teamwork", "Problem Solving", "Time Management", "Communication", "Adaptability"]
-    },
-    {
-      title: "Currently Learning",
-      icon: <Zap className="w-6 h-6" />,
-      color: "text-yellow-400",
-      bgColor: "bg-yellow-400/10",
-      skills: ["TypeScript", "Next.js", "Docker", "AWS", "GraphQL", "Microservices"]
+      title: "AI / ML & Concepts",
+      category: "AI & CORE CONCEPTS",
+      icon: <Layers className="w-5 h-5 text-amber-400" />,
+      accent: "from-amber-500/20 to-purple-500/10",
+      borderColor: "border-amber-500/30",
+      skills: [
+        { name: "TensorFlow", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" },
+        { name: "Keras", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/keras/keras-original.svg" },
+        { name: "Scikit-Learn", iconUrl: "https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" },
+        { name: "Pandas", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" },
+        { name: "NumPy", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" },
+        { name: "OOPs Concepts", iconUrl: "https://cdn-icons-png.flaticon.com/512/1006/1006771.png" },
+        { name: "DSA", iconUrl: "https://cdn-icons-png.flaticon.com/512/2103/2103633.png" }
+      ]
     }
-  ];
-
-  const achievements = [
-    {
-      title: "Hackathon Achievement",
-      description: "2nd place in 'Design Thinking and Innovation' Hackathon",
-      detail: "Competed against 50+ teams",
-      icon: "🏆"
-    },
-    {
-      title: "Competitive Programming",
-      description: "200+ LeetCode problems solved",
-      detail: "Rating: 1742, Active on CodeChef",
-      icon: "💻"
-    },
-    {
-      title: "Academic Excellence",
-      description: "Consistent academic performance",
-      detail: "Current SGPA: 8.33",
-      icon: "🎓"
-    }
-  ];
-
-  const certifications = [
-    "NPTEL: Software Engineering",
-    "HackerRank Python Certification",
-    "Google AI/ML Tech Camp",
-    "TensorFlow & Model Deployment"
   ];
 
   return (
-    <section id="skills" className="py-20 px-4">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-4">
-            Skills & Achievements
+    <section id="skills" className="py-24 px-4 md:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto space-y-16">
+        
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center space-y-4"
+        >
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-xs font-mono text-cyan-400">
+            <Sparkles className="w-3.5 h-3.5 text-purple-400" />
+            <span>TECHNICAL CAPABILITIES</span>
+          </div>
+          <h2 className="text-3xl sm:text-5xl font-extrabold font-heading text-white">
+            Skills & <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">Tech Stack</span>
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-primary to-accent mx-auto rounded-full"></div>
-        </div>
+          <p className="text-slate-400 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed font-mono">
+            Languages, frameworks, databases, and software tools from official resume.
+          </p>
+        </motion.div>
 
-        {/* Skills Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-          {skillCategories.map((category, index) => (
-            <Card key={index} className="hover-lift glow-card border-border/50 bg-card/50 backdrop-blur-sm">
-              <CardHeader className="pb-4">
-                <div className="flex items-center space-x-3">
-                  <div className={`p-2 rounded-lg ${category.bgColor} ${category.color}`}>
-                    {category.icon}
+        {/* Skills Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {categories.map((cat, idx) => (
+            <motion.div
+              key={cat.category}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: idx * 0.1 }}
+              className={`glass-card p-6 rounded-3xl border ${cat.borderColor} bg-gradient-to-br ${cat.accent} space-y-6 flex flex-col justify-between hover:scale-[1.02] transition-transform duration-300`}
+            >
+              {/* Category Header */}
+              <div className="space-y-2">
+                <div className="flex items-center gap-3">
+                  <div className="p-2.5 rounded-xl bg-slate-900/80 border border-white/10">
+                    {cat.icon}
                   </div>
-                  <CardTitle className="text-lg">{category.title}</CardTitle>
+                  <div>
+                    <span className="text-[10px] font-mono tracking-widest text-slate-400 uppercase">
+                      — {cat.category}
+                    </span>
+                    <h3 className="text-lg font-bold text-white font-heading">{cat.title}</h3>
+                  </div>
                 </div>
-              </CardHeader>
-              <CardContent>
-                <div className="flex flex-wrap gap-2">
-                  {category.skills.map((skill, i) => (
-                    <Badge key={i} variant="secondary" className="text-xs hover:bg-primary hover:text-primary-foreground transition-colors">
-                      {skill}
-                    </Badge>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+              </div>
+
+              {/* Skills List with Icons */}
+              <div className="grid grid-cols-1 gap-2.5 pt-2">
+                {cat.skills.map((skill) => (
+                  <div
+                    key={skill.name}
+                    className="flex items-center gap-3 p-2.5 rounded-xl bg-slate-900/60 border border-white/5 hover:border-white/20 hover:bg-slate-900/90 transition-all group"
+                  >
+                    <img
+                      src={skill.iconUrl}
+                      alt={skill.name}
+                      className="w-5 h-5 object-contain shrink-0 group-hover:scale-110 transition-transform"
+                      loading="lazy"
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).style.display = "none";
+                      }}
+                    />
+                    <span className="text-xs font-mono font-medium text-slate-200 group-hover:text-white transition-colors">
+                      {skill.name}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
           ))}
         </div>
 
-        {/* Achievements and Certifications */}
-        <div className="grid lg:grid-cols-2 gap-12">
-          {/* Achievements */}
-          <div>
-            <h3 className="text-2xl font-bold text-foreground mb-6">🏆 Achievements</h3>
-            <div className="space-y-4">
-              {achievements.map((achievement, index) => (
-                <Card key={index} className="hover-lift glow-card border-border/50 bg-card/50 backdrop-blur-sm">
-                  <CardContent className="p-6">
-                    <div className="flex items-start space-x-4">
-                      <div className="text-2xl">{achievement.icon}</div>
-                      <div className="flex-1">
-                        <h4 className="font-semibold text-foreground mb-1">{achievement.title}</h4>
-                        <p className="text-foreground/80 mb-1">{achievement.description}</p>
-                        <p className="text-sm text-accent">{achievement.detail}</p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-
-          {/* Certifications */}
-          <div>
-            <h3 className="text-2xl font-bold text-foreground mb-6">📜 Certifications</h3>
-            <Card className="hover-lift glow-card border-border/50 bg-card/50 backdrop-blur-sm">
-              <CardContent className="p-6">
-                <div className="space-y-4">
-                  {certifications.map((cert, index) => (
-                    <div key={index} className="flex items-center space-x-3">
-                      <div className="w-2 h-2 bg-primary rounded-full"></div>
-                      <span className="text-foreground/90">{cert}</span>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Quick Stats */}
-            <div className="mt-8 grid grid-cols-2 gap-4">
-              <Card className="text-center p-4 hover-lift glow-card border-border/50 bg-card/50 backdrop-blur-sm">
-                <div className="text-2xl font-bold text-primary">4+</div>
-                <div className="text-sm text-muted-foreground">Months Experience</div>
-              </Card>
-              <Card className="text-center p-4 hover-lift glow-card border-border/50 bg-card/50 backdrop-blur-sm">
-                <div className="text-2xl font-bold text-accent">15+</div>
-                <div className="text-sm text-muted-foreground">Technologies</div>
-              </Card>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );

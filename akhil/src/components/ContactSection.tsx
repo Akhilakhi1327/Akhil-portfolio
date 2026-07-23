@@ -1,235 +1,237 @@
-import { Card, CardContent } from "@/components/ui/card";
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { Send, Mail, MapPin, Github, Linkedin, Instagram, Sparkles, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
-import { Mail, Phone, MapPin, Github, Linkedin, Code2, Send } from "lucide-react";
-import { useState } from "react";
-import { toast } from "@/components/ui/use-toast";
+import { toast } from "@/components/ToastContainer";
 
-const ContactSection = () => {
+const ContactSection: React.FC = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     subject: "",
     message: ""
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // For demo purposes, just show a success toast
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for reaching out. I'll get back to you soon!",
-    });
-    // Reset form
-    setFormData({ name: "", email: "", subject: "", message: "" });
+    setIsSubmitting(true);
+
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setFormData({ name: "", email: "", subject: "", message: "" });
+      toast.success("Message Sent! 🎉", "Akhil will get back to you shortly. Thanks for reaching out!");
+    }, 1200);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData(prev => ({
-      ...prev,
-      [e.target.name]: e.target.value
-    }));
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-
-  const contactInfo = [
-    {
-      icon: <Mail className="w-5 h-5" />,
-      label: "Email",
-      value: "akhilnemalipuri493@gmail.com",
-      link: "mailto:akhilnemalipuri493@gmail.com"
-    },
-    {
-      icon: <MapPin className="w-5 h-5" />,
-      label: "Location",
-      value: "Visakhapatnam, India",
-      link: null
-    }
-  ];
 
   const socialLinks = [
     {
+      name: "GitHub",
+      url: "https://github.com/Akhilakhi1327/",
       icon: <Github className="w-5 h-5" />,
-      label: "GitHub",
-      username: "Akhilakhi1327",
-      link: "https://github.com/Akhilakhi1327",
-      color: "hover:text-gray-400"
+      color: "hover:text-purple-400 hover:border-purple-500/40 hover:bg-purple-500/10"
     },
     {
+      name: "LinkedIn",
+      url: "https://www.linkedin.com/in/akhil-nemalipuri-087750321/",
       icon: <Linkedin className="w-5 h-5" />,
-      label: "LinkedIn",
-      username: "akhil-nemalipuri",
-      link: "https://linkedin.com/in/akhil-nemalipuri",
-      color: "hover:text-blue-400"
+      color: "hover:text-blue-400 hover:border-blue-500/40 hover:bg-blue-500/10"
     },
     {
-      icon: <Code2 className="w-5 h-5" />,
-      label: "LeetCode",
-      username: "Akhil_Nemalipuri",
-      link: "https://leetcode.com/u/Akhil_Nemalipuri",
-      color: "hover:text-orange-400"
+      name: "Email",
+      url: "mailto:akhilnemalipuri493@gmail.com",
+      icon: <Mail className="w-5 h-5" />,
+      color: "hover:text-cyan-400 hover:border-cyan-500/40 hover:bg-cyan-500/10"
+    },
+    {
+      name: "Instagram",
+      url: "https://instagram.com/akhil_nemalipuri",
+      icon: <Instagram className="w-5 h-5" />,
+      color: "hover:text-pink-400 hover:border-pink-500/40 hover:bg-pink-500/10"
     }
   ];
 
   return (
-    <section id="contact" className="py-20 px-4 bg-secondary/30">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-4">
-            Get In Touch
+    <section id="contact" className="py-24 px-4 md:px-8 relative z-10">
+      <div className="max-w-6xl mx-auto space-y-16">
+        
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center space-y-4"
+        >
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/20 text-xs font-mono text-purple-300">
+            <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
+            <span>LET'S CONNECT</span>
+          </div>
+          <h2 className="text-3xl sm:text-5xl font-extrabold font-heading text-white">
+            Get In <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent">Touch</span>
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-primary to-accent mx-auto rounded-full"></div>
-          <p className="text-lg text-muted-foreground mt-6 max-w-2xl mx-auto">
-            I'm always open to discussing new opportunities, interesting projects, or just having a chat about technology. Feel free to reach out!
+          <p className="text-slate-400 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+            Have a project idea, job opportunity, or tech discussion? Drop a message below or connect with me via social channels.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
-          {/* Contact Form */}
-          <Card className="hover-lift glow-card border-border/50 bg-card/50 backdrop-blur-sm">
-            <CardContent className="p-8">
-              <h3 className="text-2xl font-bold text-foreground mb-6">Send a Message</h3>
-              
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="name">Name</Label>
-                    <Input
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      placeholder="Your name"
-                      required
-                      className="bg-background/50"
-                    />
+        {/* Contact Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+          
+          {/* Left Column: Direct Info & Social Cards */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-5 space-y-6"
+          >
+            <div className="glass-card p-6 sm:p-8 space-y-6 border-white/10 relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-36 h-36 bg-purple-500/10 rounded-full blur-3xl pointer-events-none" />
+
+              <h3 className="text-xl font-bold text-white font-heading">Contact Details</h3>
+
+              <div className="space-y-4">
+                <a
+                  href="mailto:akhilnemalipuri493@gmail.com"
+                  className="flex items-center gap-4 p-4 rounded-2xl bg-slate-900/60 border border-white/5 hover:border-purple-500/30 transition-colors group"
+                >
+                  <div className="p-3 rounded-xl bg-purple-500/15 text-purple-400 group-hover:scale-110 transition-transform">
+                    <Mail className="w-5 h-5" />
                   </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="email">Email</Label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      placeholder="your.email@example.com"
-                      required
-                      className="bg-background/50"
-                    />
-                  </div>
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="subject">Subject</Label>
-                  <Input
-                    id="subject"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    placeholder="What's this about?"
-                    required
-                    className="bg-background/50"
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="message">Message</Label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    placeholder="Your message here..."
-                    rows={5}
-                    required
-                    className="bg-background/50 resize-none"
-                  />
-                </div>
-
-                <Button type="submit" className="w-full bg-primary hover:bg-primary-glow transition-all duration-300 hover:scale-105">
-                  <Send className="w-4 h-4 mr-2" />
-                  Send Message
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
-
-          {/* Contact Information */}
-          <div className="space-y-8">
-            {/* Contact Info */}
-            <Card className="hover-lift glow-card border-border/50 bg-card/50 backdrop-blur-sm">
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-bold text-foreground mb-6">Contact Information</h3>
-                
-                <div className="space-y-4">
-                  {contactInfo.map((info, index) => (
-                    <div key={index} className="flex items-center space-x-4">
-                      <div className="p-3 bg-primary/10 text-primary rounded-lg">
-                        {info.icon}
-                      </div>
-                      <div>
-                        <p className="text-sm text-muted-foreground">{info.label}</p>
-                        {info.link ? (
-                          <a
-                            href={info.link}
-                            className="text-foreground hover:text-primary transition-colors font-medium"
-                          >
-                            {info.value}
-                          </a>
-                        ) : (
-                          <p className="text-foreground font-medium">{info.value}</p>
-                        )}
-                      </div>
+                  <div>
+                    <div className="text-xs text-slate-400 font-mono">Email</div>
+                    <div className="font-semibold text-white text-sm group-hover:text-purple-300 transition-colors">
+                      akhilnemalipuri493@gmail.com
                     </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+                  </div>
+                </a>
 
-            {/* Social Links */}
-            <Card className="hover-lift glow-card border-border/50 bg-card/50 backdrop-blur-sm">
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-bold text-foreground mb-6">Connect With Me</h3>
-                
-                <div className="space-y-4">
-                  {socialLinks.map((social, index) => (
+                <a
+                  href="tel:+919390093962"
+                  className="flex items-center gap-4 p-4 rounded-2xl bg-slate-900/60 border border-white/5 hover:border-cyan-500/30 transition-colors group"
+                >
+                  <div className="p-3 rounded-xl bg-cyan-500/15 text-cyan-400 group-hover:scale-110 transition-transform">
+                    <MapPin className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <div className="text-xs text-slate-400 font-mono">Phone & Location</div>
+                    <div className="font-semibold text-white text-sm">
+                      +91 9390093962 • Visakhapatnam, India
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+              {/* Social Channels */}
+              <div className="pt-4 border-t border-white/10 space-y-3">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400">Social Profiles</h4>
+                <div className="grid grid-cols-2 gap-3">
+                  {socialLinks.map((social) => (
                     <a
-                      key={index}
-                      href={social.link}
+                      key={social.name}
+                      href={social.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`flex items-center space-x-4 p-3 rounded-lg hover:bg-secondary/50 transition-all duration-300 group ${social.color}`}
+                      className={`p-3 rounded-2xl bg-slate-900/80 border border-white/10 text-slate-300 font-medium text-xs flex items-center gap-3 transition-all duration-300 hover:scale-105 ${social.color}`}
                     >
-                      <div className="p-2 bg-primary/10 group-hover:bg-primary/20 text-primary rounded-lg transition-colors">
-                        {social.icon}
-                      </div>
-                      <div>
-                        <p className="text-sm text-muted-foreground">{social.label}</p>
-                        <p className="text-foreground font-medium">@{social.username}</p>
-                      </div>
+                      {social.icon}
+                      <span>{social.name}</span>
                     </a>
                   ))}
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
+          </motion.div>
 
-            {/* Quick Response */}
-            <Card className="hover-lift glow-card border-border/50 bg-card/50 backdrop-blur-sm">
-              <CardContent className="p-8 text-center">
-                <div className="mb-4">
-                  <div className="w-12 h-12 bg-accent/10 text-accent rounded-full flex items-center justify-center mx-auto mb-3">
-                    <Mail className="w-6 h-6" />
+          {/* Right Column: Glassmorphism Form */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-7"
+          >
+            <div className="glass-card p-6 sm:p-8 border-white/10 rounded-3xl relative overflow-hidden">
+              
+              <form onSubmit={handleSubmit} className="space-y-5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  <div className="space-y-2">
+                    <label className="text-xs font-medium text-slate-300 font-mono">Your Name</label>
+                    <input
+                      type="text"
+                      name="name"
+                      required
+                      value={formData.name}
+                      onChange={handleChange}
+                      placeholder="e.g. Alex Johnson"
+                      className="w-full px-4 py-3 rounded-2xl bg-slate-900/80 border border-white/10 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-purple-500/60 focus:ring-1 focus:ring-purple-500/60 transition-all"
+                    />
                   </div>
-                  <h4 className="text-lg font-semibold text-foreground">Quick Response</h4>
+
+                  <div className="space-y-2">
+                    <label className="text-xs font-medium text-slate-300 font-mono">Your Email</label>
+                    <input
+                      type="email"
+                      name="email"
+                      required
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder="alex@company.com"
+                      className="w-full px-4 py-3 rounded-2xl bg-slate-900/80 border border-white/10 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-purple-500/60 focus:ring-1 focus:ring-purple-500/60 transition-all"
+                    />
+                  </div>
                 </div>
-                <p className="text-muted-foreground text-sm">
-                  I typically respond within 24 hours. For urgent matters, feel free to reach out via LinkedIn!
-                </p>
-              </CardContent>
-            </Card>
-          </div>
+
+                <div className="space-y-2">
+                  <label className="text-xs font-medium text-slate-300 font-mono">Subject</label>
+                  <input
+                    type="text"
+                    name="subject"
+                    required
+                    value={formData.subject}
+                    onChange={handleChange}
+                    placeholder="Project Inquiry / Job Role"
+                    className="w-full px-4 py-3 rounded-2xl bg-slate-900/80 border border-white/10 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-purple-500/60 focus:ring-1 focus:ring-purple-500/60 transition-all"
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <label className="text-xs font-medium text-slate-300 font-mono">Message</label>
+                  <textarea
+                    name="message"
+                    required
+                    rows={4}
+                    value={formData.message}
+                    onChange={handleChange}
+                    placeholder="Write your message here..."
+                    className="w-full px-4 py-3 rounded-2xl bg-slate-900/80 border border-white/10 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-purple-500/60 focus:ring-1 focus:ring-purple-500/60 transition-all resize-none"
+                  />
+                </div>
+
+                <Button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full bg-gradient-to-r from-[#7C3AED] via-[#3B82F6] to-[#06B6D4] hover:opacity-95 text-white font-semibold text-sm rounded-2xl py-6 shadow-xl shadow-purple-500/25 transition-all duration-300 hover:scale-[1.01]"
+                >
+                  {isSubmitting ? (
+                    <span className="flex items-center gap-2">Sending...</span>
+                  ) : (
+                    <span className="flex items-center gap-2">
+                      <Send className="w-4 h-4" /> Send Message
+                    </span>
+                  )}
+                </Button>
+              </form>
+            </div>
+          </motion.div>
+
         </div>
+
       </div>
     </section>
   );

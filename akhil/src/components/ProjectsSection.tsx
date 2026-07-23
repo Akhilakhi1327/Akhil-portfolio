@@ -1,142 +1,210 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import React from "react";
+import { motion } from "framer-motion";
+import { Github, ArrowUpRight, CheckCircle, Briefcase, Truck, ShoppingBag } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Github, ExternalLink, Database, Shield, Users, Truck } from "lucide-react";
+import elitehireImg from "@/assets/elitehire.jpg";
+import trackfleetImg from "@/assets/trackfleet.jpg";
+import induvaImg from "@/assets/induva.jpg";
 
-const ProjectsSection = () => {
-  const projects = [
+interface Project {
+  id: string;
+  title: string;
+  subtitle: string;
+  category: string;
+  description: string;
+  highlights: string[];
+  techStack: string[];
+  image: string;
+  githubUrl: string;
+  liveDemoUrl: string;
+  featuredIcon: React.ReactNode;
+  accentGradient: string;
+  borderColor: string;
+}
+
+const ProjectsSection: React.FC = () => {
+  const projects: Project[] = [
     {
-      title: "EliteHire",
-      description: "Comprehensive job portal built with MERN stack and Redux for state management, featuring role-based authentication and real-time notifications.",
-      longDescription: "A full-featured job portal that connects job seekers with employers. Built with modern web technologies and best practices for scalability and user experience.",
-      features: [
-        "JWT Authentication & Authorization",
-        "Role-based access control (Job Seekers, Recruiters, Admin)",
-        "Resume upload and management system",
-        "Advanced job search and filtering",
-        "Admin dashboard with analytics",
-        "Real-time notifications"
+      id: "elitehire",
+      title: "EliteHire - Job Portal Web Application",
+      subtitle: "Full-Stack Career & Recruitment Platform",
+      category: "Full Stack Web App",
+      description: "Full-stack job portal featuring role-based JWT authentication, ATS scoring, resume uploads via Multer, real-time application tracking, and an admin dashboard.",
+      highlights: [
+        "Developed EliteHire with JWT auth & role-based access for students & recruiters.",
+        "Modular backend with search, filtering, pagination, job saving, and admin dashboard.",
+        "Implemented ATS scoring, status actions, Multer uploads & integrated SMTP email."
       ],
-      technologies: ["React.js", "Node.js", "Express.js", "MongoDB", "Redux", "JWT", "Multer"],
-      icon: <Users className="w-6 h-6" />,
-      color: "text-blue-400",
-      bgColor: "bg-blue-400/10",
-      github: "#",
-      demo: "#"
+      techStack: ["React.js", "Node.js", "Express.js", "MongoDB", "Redux Toolkit", "JWT", "Multer"],
+      image: elitehireImg,
+      githubUrl: "https://github.com/Akhilakhi1327/EliteHire",
+      liveDemoUrl: "https://elitehire-portal.vercel.app",
+      featuredIcon: <Briefcase className="w-5 h-5 text-purple-400" />,
+      accentGradient: "from-purple-500 to-blue-500",
+      borderColor: "group-hover:border-purple-500/50"
     },
     {
-      title: "TrackFleet",
-      description: "Real-time courier tracking system built with Node.js and MySQL, supporting multiple user roles and comprehensive package management.",
-      longDescription: "A sophisticated courier management system that provides real-time tracking capabilities for packages with multi-role access control.",
-      features: [
-        "Real-time package tracking",
-        "Multi-role system (User, Admin, Delivery)",
-        "Package status management",
-        "Route optimization",
-        "Delivery notifications",
-        "Analytics dashboard"
+      id: "trackfleet",
+      title: "TrackFleet - Courier Tracking System",
+      subtitle: "Full-Stack Package & Logistics System",
+      category: "Logistics & Tracking",
+      description: "Full-stack courier tracking system with role-based authentication for users, administrators, and delivery personnel. Features auto-generated tracking IDs and shipment management.",
+      highlights: [
+        "Role-based auth for users, administrators, and delivery personnel.",
+        "Shipment management modules with auto-generated tracking IDs & order history.",
+        "Admin dashboard for shipment creation, delivery assignment & secure MySQL operations."
       ],
-      technologies: ["Node.js", "Express.js", "MySQL", "Socket.io", "JWT", "RESTful APIs"],
-      icon: <Truck className="w-6 h-6" />,
-      color: "text-green-400",
-      bgColor: "bg-green-400/10",
-      github: "#",
-      demo: "#"
+      techStack: ["HTML", "CSS", "JavaScript", "Node.js", "MySQL", "Bootstrap", "Express.js"],
+      image: trackfleetImg,
+      githubUrl: "https://github.com/Akhilakhi1327/TrackFleet",
+      liveDemoUrl: "https://trackfleet.vercel.app",
+      featuredIcon: <Truck className="w-5 h-5 text-emerald-400" />,
+      accentGradient: "from-cyan-400 to-emerald-400",
+      borderColor: "group-hover:border-emerald-500/50"
+    },
+    {
+      id: "house-of-induva",
+      title: "House Of Induva",
+      subtitle: "Fashion Catalog E-Commerce Website",
+      category: "Luxury E-Commerce",
+      description: "A luxury fashion catalog e-commerce platform designed for apparel browsing, dynamic category filtering, interactive product image showcases, shopping cart persistence, and checkout experience.",
+      highlights: [
+        "Interactive fashion product catalog with high-res galleries.",
+        "Dynamic shopping cart & instant price calculations.",
+        "Responsive luxury UI aesthetics optimized for mobile and desktop."
+      ],
+      techStack: ["React.js", "Tailwind CSS", "Node.js", "Express.js", "MongoDB", "Framer Motion"],
+      image: induvaImg,
+      githubUrl: "https://github.com/Akhilakhi1327/House-Of-Induva",
+      liveDemoUrl: "https://house-of-induva.vercel.app",
+      featuredIcon: <ShoppingBag className="w-5 h-5 text-cyan-400" />,
+      accentGradient: "from-blue-500 to-cyan-400",
+      borderColor: "group-hover:border-cyan-500/50"
     }
   ];
 
   return (
-    <section id="projects" className="py-20 px-4 bg-secondary/30">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-4">
-            Featured Projects
+    <section id="projects" className="py-24 px-4 md:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto space-y-16">
+        
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center space-y-4"
+        >
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-xs font-mono text-cyan-400">
+            <span>PORTFOLIO SHOWCASE</span>
+          </div>
+          <h2 className="text-3xl sm:text-5xl font-extrabold font-heading text-white">
+            Featured <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">Projects</span>
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-primary to-accent mx-auto rounded-full"></div>
-          <p className="text-lg text-muted-foreground mt-6 max-w-2xl mx-auto">
-            Here are some of my recent projects that showcase my skills in full-stack development and problem-solving.
+          <p className="text-slate-400 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+            Production-grade full-stack web applications engineered with modular backends, robust REST APIs, and modern responsive frontends.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-8">
-          {projects.map((project, index) => (
-            <Card key={index} className="group hover-lift glow-card border-border/50 bg-card/50 backdrop-blur-sm overflow-hidden">
-              <CardHeader className="pb-4">
-                <div className="flex items-center justify-between mb-4">
-                  <div className={`p-3 rounded-lg ${project.bgColor} ${project.color}`}>
-                    {project.icon}
-                  </div>
-                  <div className="flex space-x-2">
-                    <Button size="sm" variant="outline" className="opacity-0 group-hover:opacity-100 transition-opacity duration-300" asChild>
-                      <a href={project.github} target="_blank" rel="noopener noreferrer">
-                        <Github className="w-4 h-4" />
-                      </a>
-                    </Button>
-                    <Button size="sm" variant="outline" className="opacity-0 group-hover:opacity-100 transition-opacity duration-300" asChild>
-                      <a href={project.demo} target="_blank" rel="noopener noreferrer">
-                        <ExternalLink className="w-4 h-4" />
-                      </a>
-                    </Button>
-                  </div>
-                </div>
-                
-                <CardTitle className="text-xl text-foreground">{project.title}</CardTitle>
-                <CardDescription className="text-foreground/80">
-                  {project.description}
-                </CardDescription>
-              </CardHeader>
+        {/* Project Cards List */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {projects.map((project, idx) => (
+            <motion.div
+              key={project.id}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: idx * 0.15 }}
+              className={`group glass-card overflow-hidden border border-white/10 rounded-3xl transition-all duration-500 flex flex-col justify-between hover:shadow-2xl ${project.borderColor}`}
+            >
+              <div>
+                {/* Project Image Container */}
+                <div className="relative h-52 w-full overflow-hidden border-b border-white/10">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0B0F19] via-transparent to-black/30" />
 
-              <CardContent className="space-y-4">
-                <div>
-                  <h4 className="font-semibold text-foreground mb-2">Key Features:</h4>
-                  <ul className="space-y-1">
-                    {project.features.slice(0, 4).map((feature, i) => (
-                      <li key={i} className="text-sm text-foreground/80 flex items-start">
-                        <span className="w-1.5 h-1.5 bg-accent rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div>
-                  <h4 className="font-semibold text-foreground mb-3">Technologies Used:</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {project.technologies.map((tech, i) => (
-                      <Badge key={i} variant="outline" className="text-xs">
-                        {tech}
-                      </Badge>
-                    ))}
+                  {/* Top Badge & Icon */}
+                  <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
+                    <span className="text-[10px] font-mono tracking-wider uppercase px-3 py-1 rounded-full bg-slate-900/80 border border-white/10 text-cyan-300 backdrop-blur-md">
+                      {project.category}
+                    </span>
+                    <div className="p-2 rounded-xl bg-slate-900/80 border border-white/10 backdrop-blur-md shadow-md">
+                      {project.featuredIcon}
+                    </div>
                   </div>
                 </div>
 
-                <div className="flex space-x-3 pt-4">
-                  <Button size="sm" className="flex-1" asChild>
-                    <a href={project.github} target="_blank" rel="noopener noreferrer">
-                      <Github className="w-4 h-4 mr-2" />
-                      View Code
-                    </a>
-                  </Button>
-                  <Button size="sm" variant="outline" className="flex-1" asChild>
-                    <a href={project.demo} target="_blank" rel="noopener noreferrer">
-                      <ExternalLink className="w-4 h-4 mr-2" />
-                      Live Demo
-                    </a>
-                  </Button>
+                {/* Content Body */}
+                <div className="p-6 space-y-4">
+                  <div>
+                    <h3 className="text-lg font-bold text-white font-heading group-hover:text-cyan-300 transition-colors">{project.title}</h3>
+                    <p className="text-xs font-medium text-purple-400 mt-0.5">{project.subtitle}</p>
+                  </div>
+
+                  <p className="text-slate-300 text-xs leading-relaxed">
+                    {project.description}
+                  </p>
+
+                  {/* Key Highlights */}
+                  <div className="space-y-2 pt-1">
+                    <h5 className="text-[10px] font-bold uppercase tracking-wider text-slate-400 font-mono">Highlights</h5>
+                    <ul className="space-y-1 text-xs text-slate-300">
+                      {project.highlights.map((h, i) => (
+                        <li key={i} className="flex items-start gap-2">
+                          <CheckCircle className="w-3.5 h-3.5 text-cyan-400 shrink-0 mt-0.5" />
+                          <span className="text-[11px]">{h}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Tech Stack Badges */}
+                  <div className="space-y-2 pt-2">
+                    <div className="flex flex-wrap gap-1.5">
+                      {project.techStack.map((tech) => (
+                        <span
+                          key={tech}
+                          className="text-[10px] font-mono px-2 py-0.5 rounded-md bg-slate-900/80 border border-white/10 text-slate-300"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+
+              {/* Card Footer Actions */}
+              <div className="p-6 pt-0 flex items-center gap-3">
+                <Button
+                  size="sm"
+                  className={`flex-1 bg-gradient-to-r ${project.accentGradient} text-white font-semibold text-xs rounded-xl py-4 shadow-lg transition-transform duration-300 hover:scale-[1.02]`}
+                  asChild
+                >
+                  <a href={project.liveDemoUrl} target="_blank" rel="noopener noreferrer">
+                    <ArrowUpRight className="w-4 h-4 mr-1.5" /> Live Demo
+                  </a>
+                </Button>
+
+                <Button
+                  size="sm"
+                  variant="outline"
+                  className="border-white/15 bg-slate-900/60 hover:bg-white/10 text-white font-semibold text-xs rounded-xl px-4 py-4 backdrop-blur-md transition-transform duration-300 hover:scale-105"
+                  asChild
+                >
+                  <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" aria-label="GitHub Repository">
+                    <Github className="w-4 h-4 mr-1" /> Code
+                  </a>
+                </Button>
+              </div>
+            </motion.div>
           ))}
         </div>
 
-        <div className="text-center mt-12">
-          <Button variant="outline" size="lg" className="hover-lift" asChild>
-            <a href="https://github.com/Akhilakhi1327" target="_blank" rel="noopener noreferrer">
-              <Github className="w-5 h-5 mr-2" />
-              View All Projects on GitHub
-            </a>
-          </Button>
-        </div>
       </div>
     </section>
   );

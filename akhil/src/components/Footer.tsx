@@ -1,92 +1,55 @@
-import { Heart, Github, Linkedin, Code2 } from "lucide-react";
+import React from "react";
+import { ArrowUp, Sparkles } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
-const Footer = () => {
-  const currentYear = new Date().getFullYear();
+const Footer: React.FC = () => {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
-    <footer className="bg-background border-t border-border py-12">
-      <div className="max-w-6xl mx-auto px-4">
-        <div className="grid md:grid-cols-3 gap-8 mb-8">
-          {/* Branding */}
-          <div className="space-y-4">
-            <div className="font-bold text-2xl bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+    <footer className="relative z-10 border-t border-white/10 bg-[#0B0F19]/90 py-12 px-4 md:px-8">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+        
+        {/* Brand Logo & Copyright */}
+        <div className="flex items-center gap-3">
+          <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-purple-600 to-cyan-400 p-[1.5px]">
+            <div className="w-full h-full bg-[#0B0F19] rounded-[10.5px] flex items-center justify-center font-bold text-white font-heading text-sm">
+              AK
+            </div>
+          </div>
+          <div>
+            <div className="font-bold text-white text-sm font-heading flex items-center gap-1.5">
               Akhil Nemalipuri
+              <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
             </div>
-            <p className="text-muted-foreground text-sm max-w-sm">
-              Full-Stack Developer passionate about creating innovative solutions and solving complex problems through technology.
-            </p>
-          </div>
-
-          {/* Quick Links */}
-          <div className="space-y-4">
-            <h4 className="font-semibold text-foreground">Quick Links</h4>
-            <div className="space-y-2">
-              {[
-                { href: "#about", label: "About" },
-                { href: "#experience", label: "Experience" },
-                { href: "#projects", label: "Projects" },
-                { href: "#skills", label: "Skills" },
-                { href: "#contact", label: "Contact" }
-              ].map((link) => (
-                <button
-                  key={link.href}
-                  onClick={() => {
-                    const element = document.querySelector(link.href);
-                    if (element) {
-                      element.scrollIntoView({ behavior: "smooth" });
-                    }
-                  }}
-                  className="block text-muted-foreground hover:text-primary transition-colors text-sm"
-                >
-                  {link.label}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Social Links */}
-          <div className="space-y-4">
-            <h4 className="font-semibold text-foreground">Connect</h4>
-            <div className="flex space-x-4">
-              <a
-                href="https://github.com/Akhilakhi1327"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 bg-secondary hover:bg-primary hover:text-primary-foreground rounded-lg transition-colors"
-              >
-                <Github className="w-5 h-5" />
-              </a>
-              <a
-                href="https://linkedin.com/in/akhil-nemalipuri"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 bg-secondary hover:bg-primary hover:text-primary-foreground rounded-lg transition-colors"
-              >
-                <Linkedin className="w-5 h-5" />
-              </a>
-              <a
-                href="https://leetcode.com/u/Akhil_Nemalipuri"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 bg-secondary hover:bg-primary hover:text-primary-foreground rounded-lg transition-colors"
-              >
-                <Code2 className="w-5 h-5" />
-              </a>
-            </div>
-          </div>
-        </div>
-
-        {/* Bottom Bar */}
-        <div className="border-t border-border pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-muted-foreground text-sm flex items-center">
-              Made with <Heart className="w-4 h-4 mx-1 text-red-500" fill="currentColor" /> using React & Tailwind CSS
-            </p>
-            <p className="text-muted-foreground text-sm">
-              © {currentYear} Akhil Nemalipuri. All rights reserved.
+            <p className="text-xs text-slate-400 font-mono">
+              © {new Date().getFullYear()} • Crafted with React & Tailwind CSS
             </p>
           </div>
         </div>
+
+        {/* Quick Links */}
+        <div className="flex flex-wrap items-center justify-center gap-6 text-xs text-slate-400 font-medium">
+          <a href="#hero" className="hover:text-white transition-colors">Home</a>
+          <a href="#about" className="hover:text-white transition-colors">About</a>
+          <a href="#experience" className="hover:text-white transition-colors">Experience</a>
+          <a href="#skills" className="hover:text-white transition-colors">Skills</a>
+          <a href="#projects" className="hover:text-white transition-colors">Projects</a>
+          <a href="#achievements" className="hover:text-white transition-colors">Achievements</a>
+          <a href="#contact" className="hover:text-white transition-colors">Contact</a>
+        </div>
+
+        {/* Back to Top Button */}
+        <Button
+          onClick={scrollToTop}
+          size="sm"
+          variant="outline"
+          className="border-white/10 bg-slate-900/80 text-slate-300 hover:text-white hover:border-purple-500/50 hover:bg-purple-500/10 rounded-xl px-4 py-2 text-xs backdrop-blur-md transition-all duration-300 hover:scale-105"
+        >
+          <ArrowUp className="w-4 h-4 mr-1.5 text-cyan-400" /> Back to Top
+        </Button>
+
       </div>
     </footer>
   );
