@@ -18,6 +18,7 @@ const Navigation: React.FC<NavigationProps> = ({ onOpenResume, theme = "dark", t
     { name: "Home", href: "#hero" },
     { name: "About", href: "#about" },
     { name: "Experience", href: "#experience" },
+    { name: "Education", href: "#education" },
     { name: "Skills", href: "#skills" },
     { name: "Projects", href: "#projects" },
     { name: "Achievements", href: "#achievements" },

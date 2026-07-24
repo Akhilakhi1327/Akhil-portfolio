@@ -4,53 +4,6 @@ import { GraduationCap, Briefcase, MapPin, Sparkles, Code2, Award, Terminal, Che
 import standingPhoto from "@/assets/profile-standing-new.jpg";
 
 const AboutSection = () => {
-  const timelineItems = [
-    {
-      year: "Nov 2025 – Apr 2026",
-      title: "Frontend Developer Intern",
-      subtitle: "CrowdStrike",
-      type: "Internship",
-      icon: <Briefcase className="w-5 h-5 text-emerald-400" />,
-      color: "border-emerald-500/40 bg-emerald-500/10",
-      description: "Contributed to developing enterprise cybersecurity frontend modules with React.js, Redux, JavaScript, HTML5, CSS3, and Tailwind CSS. Built reusable modular UI components, integrated REST APIs, and optimized render performance."
-    },
-    {
-      year: "Jan 2024 – Apr 2024",
-      title: "AICTE–Google AI/ML Virtual Intern",
-      subtitle: "AICTE & Google EduSkills",
-      type: "Internship",
-      icon: <Terminal className="w-5 h-5 text-cyan-400" />,
-      color: "border-cyan-500/40 bg-cyan-500/10",
-      description: "Completed certified virtual internship on machine learning using Python, Scikit-learn, and Pandas. Built predictive models for student academic performance evaluation."
-    },
-    {
-      year: "Nov 2022 – June 2026",
-      title: "B.Tech in Information Technology",
-      subtitle: "Gayatri Vidya Parishad College of Engineering",
-      type: "Education",
-      icon: <GraduationCap className="w-5 h-5 text-blue-400" />,
-      color: "border-blue-500/40 bg-blue-500/10",
-      description: "Pursuing B.Tech in Information Technology at GVPCE, Visakhapatnam (SGPA: 8.33). Specialized in Data Structures & Algorithms, Full-Stack Web Development, OOPs, and Relational Databases."
-    },
-    {
-      year: "Jun 2020 – Mar 2022",
-      title: "Intermediate (BIE AP) - 88%",
-      subtitle: "Narayana Junior College, Srikakulam",
-      type: "Education",
-      icon: <GraduationCap className="w-5 h-5 text-purple-400" />,
-      color: "border-purple-500/40 bg-purple-500/10",
-      description: "Completed Higher Secondary Intermediate Education under Board of Intermediate Education (AP) with 88% overall score."
-    },
-    {
-      year: "Jun 2019 – May 2020",
-      title: "10th Class SSC (AP) - CGPA: 9.3",
-      subtitle: "Maitreya Vidya Mandir, Srikakulam",
-      type: "Education",
-      icon: <GraduationCap className="w-5 h-5 text-amber-400" />,
-      color: "border-amber-500/40 bg-amber-500/10",
-      description: "Completed 10th Class Secondary School Certificate (SSC AP) at Maitreya Vidya Mandir, Srikakulam with CGPA of 9.3."
-    }
-  ];
 
   const highlights = [
     { icon: <Laptop className="w-5 h-5 text-cyan-400" />, title: "Full-Stack Development", desc: "Crafting end-to-end web applications using React.js, Node.js, Express.js, and MongoDB/MySQL." },
@@ -161,46 +114,6 @@ const AboutSection = () => {
             </div>
           </motion.div>
 
-        </div>
-
-        {/* Education & Experience Timeline */}
-        <div className="space-y-8 pt-4">
-          <div className="text-center space-y-2">
-            <h3 className="text-2xl font-bold text-white font-heading">
-              Education & <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">Professional Journey</span>
-            </h3>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {timelineItems.map((item, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.15 }}
-                className={`glass-card p-6 rounded-3xl border ${item.color} space-y-4 hover:scale-[1.02] transition-all duration-300`}
-              >
-                <div className="flex items-center justify-between">
-                  <div className="p-2.5 rounded-2xl bg-slate-900/80 border border-white/10">
-                    {item.icon}
-                  </div>
-                  <span className="text-[10px] font-mono px-3 py-1 rounded-full bg-slate-900 border border-white/10 text-cyan-300">
-                    {item.year}
-                  </span>
-                </div>
-
-                <div>
-                  <h4 className="font-bold text-white text-base font-heading">{item.title}</h4>
-                  <div className="text-xs font-semibold text-purple-300 mt-0.5">{item.subtitle}</div>
-                </div>
-
-                <p className="text-xs text-slate-300 leading-relaxed">
-                  {item.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
         </div>
 
       </div>
