@@ -38,7 +38,7 @@ const ProjectsSection: React.FC = () => {
       techStack: ["React.js", "Node.js", "Express.js", "MongoDB", "Redux Toolkit", "JWT", "Multer"],
       image: elitehireImg,
       githubUrl: "https://github.com/Akhilakhi1327/EliteHire",
-      liveDemoUrl: "https://elitehire-portal.vercel.app",
+      liveDemoUrl: "https://elite-hire-indol.vercel.app/",
       featuredIcon: <Briefcase className="w-5 h-5 text-purple-400" />,
       accentGradient: "from-purple-500 to-blue-500",
       borderColor: "group-hover:border-purple-500/50"
@@ -57,7 +57,7 @@ const ProjectsSection: React.FC = () => {
       techStack: ["HTML", "CSS", "JavaScript", "Node.js", "MySQL", "Bootstrap", "Express.js"],
       image: trackfleetImg,
       githubUrl: "https://github.com/Akhilakhi1327/TrackFleet",
-      liveDemoUrl: "https://trackfleet.vercel.app",
+      liveDemoUrl: "https://track-fleet-beta.vercel.app/html/Index.html",
       featuredIcon: <Truck className="w-5 h-5 text-emerald-400" />,
       accentGradient: "from-cyan-400 to-emerald-400",
       borderColor: "group-hover:border-emerald-500/50"
@@ -76,7 +76,7 @@ const ProjectsSection: React.FC = () => {
       techStack: ["React.js", "Tailwind CSS", "Node.js", "Express.js", "MongoDB", "Framer Motion"],
       image: induvaImg,
       githubUrl: "https://github.com/Akhilakhi1327/House-Of-Induva",
-      liveDemoUrl: "https://house-of-induva.vercel.app",
+      liveDemoUrl: "https://fashion-catlog.vercel.app/",
       featuredIcon: <ShoppingBag className="w-5 h-5 text-cyan-400" />,
       accentGradient: "from-blue-500 to-cyan-400",
       borderColor: "group-hover:border-cyan-500/50"

@@ -31,6 +31,24 @@ const AboutSection = () => {
       icon: <GraduationCap className="w-5 h-5 text-blue-400" />,
       color: "border-blue-500/40 bg-blue-500/10",
       description: "Pursuing B.Tech in Information Technology at GVPCE, Visakhapatnam (SGPA: 8.33). Specialized in Data Structures & Algorithms, Full-Stack Web Development, OOPs, and Relational Databases."
+    },
+    {
+      year: "Jun 2020 – Mar 2022",
+      title: "Intermediate (BIE AP) - 88%",
+      subtitle: "Narayana Junior College, Srikakulam",
+      type: "Education",
+      icon: <GraduationCap className="w-5 h-5 text-purple-400" />,
+      color: "border-purple-500/40 bg-purple-500/10",
+      description: "Completed Higher Secondary Intermediate Education under Board of Intermediate Education (AP) with 88% overall score."
+    },
+    {
+      year: "Jun 2019 – May 2020",
+      title: "10th Class SSC (AP) - CGPA: 9.3",
+      subtitle: "Maitreya Vidya Mandir, Srikakulam",
+      type: "Education",
+      icon: <GraduationCap className="w-5 h-5 text-amber-400" />,
+      color: "border-amber-500/40 bg-amber-500/10",
+      description: "Completed 10th Class Secondary School Certificate (SSC AP) at Maitreya Vidya Mandir, Srikakulam with CGPA of 9.3."
     }
   ];
 
@@ -153,7 +171,7 @@ const AboutSection = () => {
             </h3>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {timelineItems.map((item, idx) => (
               <motion.div
                 key={idx}
