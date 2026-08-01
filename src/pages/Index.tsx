@@ -37,7 +37,7 @@ const Index: React.FC = () => {
   return (
     <div className={`relative min-h-screen transition-colors duration-500 ${
       theme === "dark" 
-        ? "bg-gradient-to-br from-blue-500 to-cyan-400 text-white selection:bg-[#7C3AED]/30 selection:text-[#06B6D4]" 
+        ? "bg-[#0a0d14] text-white selection:bg-[#6366f1]/30 selection:text-[#06B6D4]" 
         : "bg-[#F8FAFC] text-slate-900 selection:bg-cyan-500/30 selection:text-cyan-700"
     } overflow-x-hidden font-sans`}>
       {/* Scroll Progress Bar */}

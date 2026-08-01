@@ -22,7 +22,7 @@ const BackgroundAtmosphere: React.FC = () => {
 
     window.addEventListener('resize', handleResize);
 
-    // Particle nodes setup
+    // Particle nodes setup — match glow palette
     const numParticles = Math.min(Math.floor(width / 25), 65);
     const particles: Array<{
       x: number;
@@ -34,7 +34,8 @@ const BackgroundAtmosphere: React.FC = () => {
       color: string;
     }> = [];
 
-    const colors = ['#7C3AED', '#3B82F6', '#06B6D4'];
+    // Particle colors match the glow palette: indigo, violet, cyan
+    const colors = ['#6366f1', '#8b5cf6', '#06B6D4'];
 
     for (let i = 0; i < numParticles; i++) {
       particles.push({
@@ -82,7 +83,8 @@ const BackgroundAtmosphere: React.FC = () => {
             ctx.beginPath();
             ctx.moveTo(p1.x, p1.y);
             ctx.lineTo(p2.x, p2.y);
-            ctx.strokeStyle = '#7C3AED';
+            // Connection lines use indigo glow color
+            ctx.strokeStyle = '#6366f1';
             ctx.globalAlpha = (1 - dist / 130) * 0.15;
             ctx.lineWidth = 0.6;
             ctx.stroke();
@@ -104,14 +106,23 @@ const BackgroundAtmosphere: React.FC = () => {
 
   return (
     <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-      {/* Aurora blurred blobs */}
-      <div className="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full bg-purple-600/20 blur-[140px] animate-blob-1 pointer-events-none" />
-      <div className="absolute top-[35%] -right-40 w-[550px] h-[550px] rounded-full bg-blue-600/20 blur-[150px] animate-blob-2 pointer-events-none" />
-      <div className="absolute -bottom-40 left-[25%] w-[650px] h-[650px] rounded-full bg-cyan-500/15 blur-[160px] animate-blob-3 pointer-events-none" />
+      {/* Aurora blurred blobs — Glow 1: Indigo, Glow 2: Violet, Glow 3: Cyan */}
+      <div
+        className="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full blur-[140px] animate-blob-1 pointer-events-none"
+        style={{ background: 'rgba(99, 102, 241, 0.18)' }}
+      />
+      <div
+        className="absolute top-[35%] -right-40 w-[550px] h-[550px] rounded-full blur-[150px] animate-blob-2 pointer-events-none"
+        style={{ background: 'rgba(139, 92, 246, 0.15)' }}
+      />
+      <div
+        className="absolute -bottom-40 left-[25%] w-[650px] h-[650px] rounded-full blur-[160px] animate-blob-3 pointer-events-none"
+        style={{ background: 'rgba(6, 182, 212, 0.14)' }}
+      />
 
-      {/* Grid Pattern overlay */}
-      <div 
-        className="absolute inset-0 opacity-[0.035] pointer-events-none" 
+      {/* Subtle dot-grid overlay */}
+      <div
+        className="absolute inset-0 opacity-[0.03] pointer-events-none"
         style={{
           backgroundImage: `radial-gradient(#FFFFFF 1px, transparent 1px)`,
           backgroundSize: '36px 36px'

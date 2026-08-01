@@ -64,8 +64,8 @@ const Navigation: React.FC<NavigationProps> = ({ onOpenResume, theme = "dark", t
             href="#hero"
             className="flex items-center gap-2.5 group cursor-pointer"
           >
-            <div className="relative w-10 h-10 rounded-xl bg-gradient-to-tr from-[#7C3AED] via-[#3B82F6] to-[#06B6D4] p-[1.5px] transition-transform duration-300 group-hover:scale-105 shadow-lg shadow-purple-500/20">
-              <div className="w-full h-full bg-[#0B0F19] rounded-[10.5px] flex items-center justify-center">
+            <div className="relative w-10 h-10 rounded-xl bg-gradient-to-tr from-[#6366f1] via-[#8b5cf6] to-[#06B6D4] p-[1.5px] transition-transform duration-300 group-hover:scale-105 shadow-lg shadow-indigo-500/20">
+              <div className="w-full h-full bg-[#0a0d14] rounded-[10.5px] flex items-center justify-center">
                 <Bot className="w-5 h-5 text-cyan-400 group-hover:rotate-12 transition-transform" />
               </div>
             </div>
@@ -96,7 +96,7 @@ const Navigation: React.FC<NavigationProps> = ({ onOpenResume, theme = "dark", t
                   {isActive && (
                     <motion.div
                       layoutId="activeTab"
-                      className="absolute inset-0 bg-gradient-to-r from-[#7C3AED]/30 to-[#06B6D4]/30 rounded-full border border-purple-500/30 -z-10"
+                      className="absolute inset-0 bg-gradient-to-r from-[#6366f1]/30 to-[#06B6D4]/30 rounded-full border border-indigo-500/30 -z-10"
                       transition={{ type: "spring", stiffness: 380, damping: 30 }}
                     />
                   )}
