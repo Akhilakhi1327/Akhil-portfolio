@@ -23,61 +23,75 @@ const SkillsSection: React.FC = () => {
       accent: "from-cyan-500/20 to-blue-500/10",
       borderColor: "border-cyan-500/30",
       skills: [
-        { name: "C++", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" },
         { name: "Python", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
-        { name: "Java", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" },
+        { name: "C++", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" },
         { name: "JavaScript", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
-        { name: "TypeScript", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
         { name: "HTML5", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
-        { name: "CSS3", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
+        { name: "CSS", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
+        { name: "TypeScript", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
+        { name: "Tailwind CSS", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" },
+        { name: "SQL", iconUrl: "https://cdn-icons-png.flaticon.com/512/2888/2888909.png" }
       ]
     },
     {
-      title: "Frameworks & Libraries",
-      category: "FRAMEWORKS",
+      title: "Frameworks & Tech",
+      category: "TECHNOLOGIES",
       icon: <Cpu className="w-5 h-5 text-purple-400" />,
       accent: "from-purple-500/20 to-pink-500/10",
       borderColor: "border-purple-500/30",
       skills: [
         { name: "React.js", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+        { name: "Next.js", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" },
+        { name: "FastAPI", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" },
         { name: "Node.js", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
         { name: "Express.js", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" },
-        { name: "Redux Toolkit", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" },
-        { name: "Tailwind CSS", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" },
-        { name: "Bootstrap", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" },
-        { name: "Django", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" },
-      ]
-    },
-    {
-      title: "Databases & Tools",
-      category: "DATABASES & TOOLS",
-      icon: <Database className="w-5 h-5 text-emerald-400" />,
-      accent: "from-emerald-500/20 to-cyan-500/10",
-      borderColor: "border-emerald-500/30",
-      skills: [
         { name: "MongoDB", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
+        { name: "PostgreSQL", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
         { name: "MySQL", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
+        { name: "Redux Toolkit", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" },
         { name: "Git", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
         { name: "GitHub", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" },
-        { name: "Postman", iconUrl: "https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" },
         { name: "REST APIs", iconUrl: "https://cdn-icons-png.flaticon.com/512/1014/1014224.png" },
-        { name: "JWT Auth", iconUrl: "https://jwt.io/img/pic_logo.svg" }
-      ]
-    },
-    {
-      title: "AI / ML & Concepts",
-      category: "AI & CORE CONCEPTS",
-      icon: <Layers className="w-5 h-5 text-amber-400" />,
-      accent: "from-amber-500/20 to-purple-500/10",
-      borderColor: "border-amber-500/30",
-      skills: [
+        { name: "JWT Auth", iconUrl: "https://jwt.io/img/pic_logo.svg" },
+        { name: "Postman", iconUrl: "https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" },
+        { name: "Multer", iconUrl: "https://cdn-icons-png.flaticon.com/512/3208/3208726.png" },
+        { name: "Bootstrap", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" },
         { name: "TensorFlow", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" },
         { name: "Keras", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/keras/keras-original.svg" },
         { name: "Scikit-Learn", iconUrl: "https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" },
+        { name: "OOPs", iconUrl: "https://cdn-icons-png.flaticon.com/512/1006/1006771.png" },
+        { name: "Open APIs", iconUrl: "https://cdn-icons-png.flaticon.com/512/2103/2103633.png" }
+      ]
+    },
+    {
+      title: "ML & AI",
+      category: "MACHINE LEARNING",
+      icon: <Layers className="w-5 h-5 text-amber-400" />,
+      accent: "from-amber-500/20 to-orange-500/10",
+      borderColor: "border-amber-500/30",
+      skills: [
+        { name: "XGBoost", iconUrl: "https://upload.wikimedia.org/wikipedia/commons/6/69/XGBoost_logo.png" },
+        { name: "LightGBM", iconUrl: "https://raw.githubusercontent.com/microsoft/LightGBM/master/docs/logo/LightGBM_logo_black_text.svg" },
+        { name: "SHAP", iconUrl: "https://shap.readthedocs.io/en/latest/_static/shap_header.png" },
         { name: "Pandas", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" },
         { name: "NumPy", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" },
-        { name: "OOPs Concepts", iconUrl: "https://cdn-icons-png.flaticon.com/512/1006/1006771.png" },
-        { name: "DSA", iconUrl: "https://cdn-icons-png.flaticon.com/512/2103/2103633.png" }
+        { name: "Matplotlib", iconUrl: "https://upload.wikimedia.org/wikipedia/en/5/56/Matplotlib_logo.svg" },
+        { name: "Seaborn", iconUrl: "https://seaborn.pydata.org/_static/logo-wide-lightbg.svg" },
+        { name: "Predictive Maintenance", iconUrl: "https://cdn-icons-png.flaticon.com/512/2045/2045558.png" }
+      ]
+    },
+    {
+      title: "Cloud & DevOps",
+      category: "INFRASTRUCTURE",
+      icon: <Wrench className="w-5 h-5 text-emerald-400" />,
+      accent: "from-emerald-500/20 to-cyan-500/10",
+      borderColor: "border-emerald-500/30",
+      skills: [
+        { name: "Render", iconUrl: "https://intellyx.com/wp-content/uploads/2019/08/Render-cloud-intellyx-BC-logo.png" },
+        { name: "Vercel", iconUrl: "https://assets.vercel.com/image/upload/v1588805858/repositories/vercel/logo.png" },
+        { name: "GitHub CI/CD", iconUrl: "https://cdn-icons-png.flaticon.com/512/825/825555.png" },
+        { name: "Docker (basics)", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
+        { name: "Env Management", iconUrl: "https://cdn-icons-png.flaticon.com/512/1004/1004733.png" }
       ]
     }
   ];

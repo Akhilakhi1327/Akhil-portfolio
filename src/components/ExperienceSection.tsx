@@ -22,21 +22,21 @@ const ExperienceSection: React.FC = () => {
       skills: ["React.js", "Redux", "JavaScript", "HTML", "CSS", "Tailwind CSS", "REST APIs", "Git", "GitHub"]
     },
     {
-      company: "AICTE–Google AI/ML",
-      role: "Virtual Intern",
+      company: "AICTE – Google AI/ML",
+      role: "Generative AI & ML Intern",
       period: "Jan 2024 – Apr 2024",
-      location: "Remote / AI Lab",
+      location: "Remote",
       type: "Virtual Internship",
-      logoText: "G",
+      logoText: "AI",
       color: "from-cyan-600 to-blue-600",
       borderColor: "border-cyan-500/30",
       icon: <Cpu className="w-5 h-5 text-cyan-400" />,
       bullets: [
-        "Completed a certified internship on machine learning using Python, focusing on data preprocessing, model building, and evaluation.",
-        "Worked with Scikit-learn and Pandas to develop a mini-project predicting student performance.",
-        "Gained hands-on experience with model evaluation metrics like accuracy, precision, and recall."
+        "Completed a certified internship on Generative AI and Machine Learning, focusing on data preprocessing, model building, and evaluation.",
+        "Built and trained models utilizing XGBoost, SHAP, and predictive maintenance techniques.",
+        "Gained hands-on experience with advanced model evaluation metrics and machine learning pipelines."
       ],
-      skills: ["Python", "Scikit-learn", "Pandas", "Machine Learning", "Model Evaluation", "Data Preprocessing"]
+      skills: ["Generative AI", "Machine Learning", "XGBoost", "SHAP", "Model Training", "Data Preprocessing"]
     }
   ];
 

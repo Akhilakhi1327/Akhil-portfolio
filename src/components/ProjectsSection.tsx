@@ -1,10 +1,12 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Github, ArrowUpRight, CheckCircle, Briefcase, Truck, ShoppingBag } from "lucide-react";
+import { Github, ArrowUpRight, CheckCircle, Briefcase, Truck, ShoppingBag, Bot, Activity } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import elitehireImg from "@/assets/elitehire.jpg";
 import trackfleetImg from "@/assets/trackfleet.jpg";
 import induvaImg from "@/assets/induva.jpg";
+import aiflowImg from "@/assets/aiflow.jpg";
+import apexpredictImg from "@/assets/apexpredict.jpg";
 
 interface Project {
   id: string;
@@ -24,6 +26,44 @@ interface Project {
 
 const ProjectsSection: React.FC = () => {
   const projects: Project[] = [
+    {
+      id: "aiflow",
+      title: "AIFlow Builder",
+      subtitle: "Multi-Tenant AI Agent Workflow Engine",
+      category: "Full Stack AI SaaS",
+      description: "Engineered a multi-tenant AI workflow orchestration platform with organization-level data isolation, role-based access control (RBAC), and serverless execution supporting Gemini-powered LLM steps.",
+      highlights: [
+        "Two-layer authorization & RBAC enforced via Hasura GraphQL permissions.",
+        "Serverless execution engine with HTTP webhooks, 3× auto-retry, and approval gates.",
+        "Real-time tracking using Next.js & GraphQL subscriptions, plus atomic tenant quotas."
+      ],
+      techStack: ["Next.js", "TypeScript", "Hasura GraphQL", "PostgreSQL", "Nhost", "Gemini API"],
+      image: aiflowImg,
+      githubUrl: "https://github.com/Akhilakhi1327/AIFlow_Builder",
+      liveDemoUrl: "https://ai-flow-builder-seven.vercel.app/",
+      featuredIcon: <Bot className="w-5 h-5 text-indigo-400" />,
+      accentGradient: "from-indigo-500 to-purple-500",
+      borderColor: "group-hover:border-indigo-500/50"
+    },
+    {
+      id: "apexpredict",
+      title: "Apex Predict",
+      subtitle: "ML Predictive Maintenance Platform",
+      category: "Machine Learning SaaS",
+      description: "Production-grade predictive maintenance web application with trained XGBoost/LightGBM classification models, achieving high ROC-AUC scores, and SHAP explainability insights per prediction.",
+      highlights: [
+        "End-to-end ML pipeline with high ROC-AUC models & real-time SHAP explainability.",
+        "FastAPI backend with JWT auth, SQLAlchemy ORM, and PostgreSQL integration.",
+        "End-to-end CI/CD on Vercel & Render, automated builds, and role-based access control."
+      ],
+      techStack: ["FastAPI", "Next.js", "XGBoost", "LightGBM", "SHAP", "PostgreSQL", "React"],
+      image: apexpredictImg,
+      githubUrl: "https://github.com/Akhilakhi1327/ApexPredict",
+      liveDemoUrl: "https://apex-predict-self.vercel.app/login",
+      featuredIcon: <Activity className="w-5 h-5 text-green-400" />,
+      accentGradient: "from-green-500 to-emerald-500",
+      borderColor: "group-hover:border-green-500/50"
+    },
     {
       id: "elitehire",
       title: "EliteHire - Job Portal Web Application",

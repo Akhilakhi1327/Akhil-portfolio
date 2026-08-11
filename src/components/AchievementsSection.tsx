@@ -36,21 +36,21 @@ const AchievementsSection: React.FC = () => {
 
   const certificates = [
     {
-      title: "NPTEL: Software Engineering",
-      issuer: "NPTEL / IIT",
-      detail: "Covered SDLC, design patterns, and project management.",
+      title: "Cisco Certified",
+      issuer: "Cisco",
+      detail: "Demonstrated proficiency in networking and IT infrastructure.",
       year: "Certified"
     },
     {
-      title: "HackerRank: Python Certification",
-      issuer: "HackerRank",
-      detail: "Proved skills in core programming and problem-solving.",
+      title: "Python Essentials",
+      issuer: "Cisco Networking Academy",
+      detail: "Proved skills in core Python programming and problem-solving.",
       year: "Certified"
     },
     {
-      title: "Google AI/ML Tech Camp",
-      issuer: "EduSkills & Google",
-      detail: "Hands-on with TensorFlow, ML, and model deployment.",
+      title: "Networking Basics",
+      issuer: "Cisco Networking Academy",
+      detail: "Foundational knowledge of network architecture and protocols.",
       year: "Certified"
     }
   ];
