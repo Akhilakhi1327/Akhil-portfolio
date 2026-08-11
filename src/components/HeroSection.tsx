@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Download, Mail, Terminal, Code, Database, Sparkles, Briefcase, Star } from "lucide-react";
-import profilePhoto from "@/assets/profile-photo-car.jpg";
+import profilePhoto from "@/assets/profile-standing-new.jpg";
 
 interface HeroSectionProps {
   onOpenResume?: () => void;

@@ -8,6 +8,7 @@ interface SkillCategory {
   icon: React.ReactNode;
   accent: string;
   borderColor: string;
+  span?: string;
   skills: {
     name: string;
     iconUrl: string;
@@ -17,8 +18,8 @@ interface SkillCategory {
 const SkillsSection: React.FC = () => {
   const categories: SkillCategory[] = [
     {
-      title: "Programming Languages",
-      category: "LANGUAGES",
+      title: "Languages",
+      category: "CORE LANGUAGES",
       icon: <Code2 className="w-5 h-5 text-cyan-400" />,
       accent: "from-cyan-500/20 to-blue-500/10",
       borderColor: "border-cyan-500/30",
@@ -26,41 +27,10 @@ const SkillsSection: React.FC = () => {
         { name: "Python", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
         { name: "C++", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" },
         { name: "JavaScript", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
-        { name: "HTML5", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
-        { name: "CSS", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
         { name: "TypeScript", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
-        { name: "Tailwind CSS", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" },
-        { name: "SQL", iconUrl: "https://cdn-icons-png.flaticon.com/512/2888/2888909.png" }
-      ]
-    },
-    {
-      title: "Frameworks & Tech",
-      category: "TECHNOLOGIES",
-      icon: <Cpu className="w-5 h-5 text-purple-400" />,
-      accent: "from-purple-500/20 to-pink-500/10",
-      borderColor: "border-purple-500/30",
-      skills: [
-        { name: "React.js", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
-        { name: "Next.js", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" },
-        { name: "FastAPI", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" },
-        { name: "Node.js", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
-        { name: "Express.js", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" },
-        { name: "MongoDB", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
-        { name: "PostgreSQL", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
-        { name: "MySQL", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
-        { name: "Redux Toolkit", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" },
-        { name: "Git", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
-        { name: "GitHub", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" },
-        { name: "REST APIs", iconUrl: "https://cdn-icons-png.flaticon.com/512/1014/1014224.png" },
-        { name: "JWT Auth", iconUrl: "https://jwt.io/img/pic_logo.svg" },
-        { name: "Postman", iconUrl: "https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" },
-        { name: "Multer", iconUrl: "https://cdn-icons-png.flaticon.com/512/3208/3208726.png" },
-        { name: "Bootstrap", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" },
-        { name: "TensorFlow", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" },
-        { name: "Keras", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/keras/keras-original.svg" },
-        { name: "Scikit-Learn", iconUrl: "https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" },
-        { name: "OOPs", iconUrl: "https://cdn-icons-png.flaticon.com/512/1006/1006771.png" },
-        { name: "Open APIs", iconUrl: "https://cdn-icons-png.flaticon.com/512/2103/2103633.png" }
+        { name: "HTML5", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
+        { name: "CSS3", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
+        { name: "SQL", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" }
       ]
     },
     {
@@ -70,28 +40,53 @@ const SkillsSection: React.FC = () => {
       accent: "from-amber-500/20 to-orange-500/10",
       borderColor: "border-amber-500/30",
       skills: [
+        { name: "TensorFlow", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" },
+        { name: "Keras", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/keras/keras-original.svg" },
+        { name: "Scikit-Learn", iconUrl: "https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" },
         { name: "XGBoost", iconUrl: "https://upload.wikimedia.org/wikipedia/commons/6/69/XGBoost_logo.png" },
         { name: "LightGBM", iconUrl: "https://raw.githubusercontent.com/microsoft/LightGBM/master/docs/logo/LightGBM_logo_black_text.svg" },
-        { name: "SHAP", iconUrl: "https://shap.readthedocs.io/en/latest/_static/shap_header.png" },
         { name: "Pandas", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" },
         { name: "NumPy", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" },
-        { name: "Matplotlib", iconUrl: "https://upload.wikimedia.org/wikipedia/en/5/56/Matplotlib_logo.svg" },
-        { name: "Seaborn", iconUrl: "https://seaborn.pydata.org/_static/logo-wide-lightbg.svg" },
-        { name: "Predictive Maintenance", iconUrl: "https://cdn-icons-png.flaticon.com/512/2045/2045558.png" }
+        { name: "Matplotlib", iconUrl: "https://upload.wikimedia.org/wikipedia/en/5/56/Matplotlib_logo.svg" }
       ]
     },
     {
-      title: "Cloud & DevOps",
-      category: "INFRASTRUCTURE",
+      title: "Frameworks & Technologies",
+      category: "FULL STACK",
+      icon: <Cpu className="w-5 h-5 text-purple-400" />,
+      accent: "from-purple-500/20 to-pink-500/10",
+      borderColor: "border-purple-500/30",
+      span: "md:col-span-2 lg:col-span-2",
+      skills: [
+        { name: "React.js", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+        { name: "Next.js", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" },
+        { name: "FastAPI", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" },
+        { name: "Node.js", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
+        { name: "Express.js", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" },
+        { name: "MongoDB", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
+        { name: "PostgreSQL", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
+        { name: "Redux", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" },
+        { name: "Tailwind", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" },
+        { name: "Bootstrap", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" },
+        { name: "REST APIs", iconUrl: "https://cdn-icons-png.flaticon.com/512/1014/1014224.png" },
+        { name: "JWT", iconUrl: "https://jwt.io/img/pic_logo.svg" },
+        { name: "Postman", iconUrl: "https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" }
+      ]
+    },
+    {
+      title: "Cloud & Infrastructure",
+      category: "DEVOPS",
       icon: <Wrench className="w-5 h-5 text-emerald-400" />,
       accent: "from-emerald-500/20 to-cyan-500/10",
       borderColor: "border-emerald-500/30",
+      span: "md:col-span-2 lg:col-span-4",
       skills: [
+        { name: "Git", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
+        { name: "GitHub", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" },
+        { name: "Docker", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
         { name: "Render", iconUrl: "https://intellyx.com/wp-content/uploads/2019/08/Render-cloud-intellyx-BC-logo.png" },
         { name: "Vercel", iconUrl: "https://assets.vercel.com/image/upload/v1588805858/repositories/vercel/logo.png" },
-        { name: "GitHub CI/CD", iconUrl: "https://cdn-icons-png.flaticon.com/512/825/825555.png" },
-        { name: "Docker (basics)", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
-        { name: "Env Management", iconUrl: "https://cdn-icons-png.flaticon.com/512/1004/1004733.png" }
+        { name: "CI/CD", iconUrl: "https://cdn-icons-png.flaticon.com/512/825/825555.png" }
       ]
     }
   ];
@@ -116,7 +111,7 @@ const SkillsSection: React.FC = () => {
             Skills & <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">Tech Stack</span>
           </h2>
           <p className="text-slate-400 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed font-mono">
-            Languages, frameworks, databases, and software tools from official resume.
+            Languages, frameworks, databases, and software tools.
           </p>
         </motion.div>
 
@@ -129,40 +124,40 @@ const SkillsSection: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className={`glass-card p-6 rounded-3xl border ${cat.borderColor} bg-gradient-to-br ${cat.accent} space-y-6 flex flex-col justify-between hover:scale-[1.02] transition-transform duration-300`}
+              className={`glass-card p-6 sm:p-8 rounded-3xl border ${cat.borderColor} bg-gradient-to-br ${cat.accent} space-y-6 flex flex-col hover:scale-[1.01] transition-transform duration-300 ${cat.span || ""}`}
             >
               {/* Category Header */}
               <div className="space-y-2">
                 <div className="flex items-center gap-3">
-                  <div className="p-2.5 rounded-xl bg-slate-900/80 border border-white/10">
+                  <div className="p-3 rounded-xl bg-slate-900/80 border border-white/10">
                     {cat.icon}
                   </div>
                   <div>
                     <span className="text-[10px] font-mono tracking-widest text-slate-400 uppercase">
                       — {cat.category}
                     </span>
-                    <h3 className="text-lg font-bold text-white font-heading">{cat.title}</h3>
+                    <h3 className="text-xl font-bold text-white font-heading">{cat.title}</h3>
                   </div>
                 </div>
               </div>
 
-              {/* Skills List with Icons */}
-              <div className="grid grid-cols-1 gap-2.5 pt-2">
+              {/* Skills List with Icons - Flex Wrap for Pill Design */}
+              <div className="flex flex-wrap gap-3 pt-2">
                 {cat.skills.map((skill) => (
                   <div
                     key={skill.name}
-                    className="flex items-center gap-3 p-2.5 rounded-xl bg-slate-900/60 border border-white/5 hover:border-white/20 hover:bg-slate-900/90 transition-all group"
+                    className="flex items-center gap-2 px-3 py-2 rounded-lg bg-slate-900/60 border border-white/5 hover:border-white/20 hover:bg-slate-900/90 transition-all group shadow-sm"
                   >
                     <img
                       src={skill.iconUrl}
                       alt={skill.name}
-                      className="w-5 h-5 object-contain shrink-0 group-hover:scale-110 transition-transform"
+                      className="w-5 h-5 object-contain shrink-0 group-hover:scale-110 transition-transform bg-white/5 rounded-sm"
                       loading="lazy"
                       onError={(e) => {
                         (e.target as HTMLImageElement).style.display = "none";
                       }}
                     />
-                    <span className="text-xs font-mono font-medium text-slate-200 group-hover:text-white transition-colors">
+                    <span className="text-sm font-medium text-slate-300 group-hover:text-white transition-colors">
                       {skill.name}
                     </span>
                   </div>
