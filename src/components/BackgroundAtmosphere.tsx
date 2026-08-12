@@ -34,17 +34,17 @@ const BackgroundAtmosphere: React.FC = () => {
       color: string;
     }> = [];
 
-    // Particle colors match the glow palette: indigo, violet, cyan
-    const colors = ['#6366f1', '#8b5cf6', '#06B6D4'];
+    // Particle colors match the posh monochrome palette
+    const colors = ['#ffffff', '#a1a1aa', '#e4e4e7'];
 
     for (let i = 0; i < numParticles; i++) {
       particles.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        radius: Math.random() * 1.8 + 0.6,
-        vx: (Math.random() - 0.5) * 0.4,
-        vy: (Math.random() - 0.5) * 0.4,
-        alpha: Math.random() * 0.6 + 0.2,
+        radius: Math.random() * 1.5 + 0.5,
+        vx: (Math.random() - 0.5) * 0.2,
+        vy: (Math.random() - 0.5) * 0.2,
+        alpha: Math.random() * 0.4 + 0.1,
         color: colors[Math.floor(Math.random() * colors.length)]
       });
     }
@@ -83,10 +83,10 @@ const BackgroundAtmosphere: React.FC = () => {
             ctx.beginPath();
             ctx.moveTo(p1.x, p1.y);
             ctx.lineTo(p2.x, p2.y);
-            // Connection lines use indigo glow color
-            ctx.strokeStyle = '#6366f1';
-            ctx.globalAlpha = (1 - dist / 130) * 0.15;
-            ctx.lineWidth = 0.6;
+            // Connection lines use white/gray color
+            ctx.strokeStyle = '#ffffff';
+            ctx.globalAlpha = (1 - dist / 130) * 0.08;
+            ctx.lineWidth = 0.4;
             ctx.stroke();
           }
         }
@@ -105,32 +105,34 @@ const BackgroundAtmosphere: React.FC = () => {
   }, []);
 
   return (
-    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-      {/* Aurora blurred blobs — Glow 1: Indigo, Glow 2: Violet, Glow 3: Cyan */}
+    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden bg-[#030303]">
+      {/* Aurora blurred blobs — Monochromatic sleek glow */}
       <div
-        className="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full blur-[140px] animate-blob-1 pointer-events-none"
-        style={{ background: 'rgba(99, 102, 241, 0.18)' }}
+        className="absolute -top-[20%] -left-[10%] w-[800px] h-[800px] rounded-full blur-[160px] animate-blob-1 pointer-events-none opacity-40"
+        style={{ background: 'rgba(255, 255, 255, 0.04)' }}
       />
       <div
-        className="absolute top-[35%] -right-40 w-[550px] h-[550px] rounded-full blur-[150px] animate-blob-2 pointer-events-none"
-        style={{ background: 'rgba(139, 92, 246, 0.15)' }}
+        className="absolute top-[20%] -right-[15%] w-[700px] h-[700px] rounded-full blur-[140px] animate-blob-2 pointer-events-none opacity-30"
+        style={{ background: 'rgba(255, 255, 255, 0.03)' }}
       />
       <div
-        className="absolute -bottom-40 left-[25%] w-[650px] h-[650px] rounded-full blur-[160px] animate-blob-3 pointer-events-none"
-        style={{ background: 'rgba(6, 182, 212, 0.14)' }}
+        className="absolute -bottom-[30%] left-[20%] w-[900px] h-[900px] rounded-full blur-[180px] animate-blob-3 pointer-events-none opacity-40"
+        style={{ background: 'rgba(255, 255, 255, 0.05)' }}
       />
 
       {/* Subtle dot-grid overlay */}
       <div
-        className="absolute inset-0 opacity-[0.03] pointer-events-none"
+        className="absolute inset-0 opacity-[0.06] pointer-events-none mask-image-radial-center"
         style={{
-          backgroundImage: `radial-gradient(#FFFFFF 1px, transparent 1px)`,
-          backgroundSize: '36px 36px'
+          backgroundImage: `radial-gradient(#ffffff 1px, transparent 1px)`,
+          backgroundSize: '48px 48px',
+          maskImage: 'radial-gradient(ellipse at center, black 40%, transparent 80%)',
+          WebkitMaskImage: 'radial-gradient(ellipse at center, black 40%, transparent 80%)'
         }}
       />
 
       {/* Floating Canvas Particles */}
-      <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none" />
+      <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none opacity-30" />
     </div>
   );
 };

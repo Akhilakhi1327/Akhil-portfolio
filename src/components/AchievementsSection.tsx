@@ -8,29 +8,29 @@ const AchievementsSection: React.FC = () => {
       number: "200+",
       label: "LeetCode Solved",
       subtext: "Global Rating: 1742",
-      gradient: "from-purple-500 to-pink-500",
-      border: "border-purple-500/30"
+      gradient: "from-white to-slate-400",
+      border: "border-white/10"
     },
     {
       number: "1742",
       label: "LeetCode Rating",
       subtext: "Top Competitive Solver",
-      gradient: "from-cyan-400 to-blue-500",
-      border: "border-cyan-500/30"
+      gradient: "from-slate-200 to-slate-500",
+      border: "border-white/10"
     },
     {
       number: "8.33",
       label: "SGPA B.Tech IT",
       subtext: "GVP College of Engineering",
-      gradient: "from-blue-500 to-purple-600",
-      border: "border-blue-500/30"
+      gradient: "from-white to-slate-400",
+      border: "border-white/10"
     },
     {
       number: "2nd",
       label: "Hackathon Position",
       subtext: "50+ Teams (Design Thinking)",
-      gradient: "from-emerald-400 to-cyan-500",
-      border: "border-emerald-500/30"
+      gradient: "from-slate-200 to-slate-500",
+      border: "border-white/10"
     }
   ];
 
@@ -39,6 +39,18 @@ const AchievementsSection: React.FC = () => {
       title: "HackerRank: Python Certification",
       issuer: "HackerRank",
       detail: "Proved skills in core programming and problem-solving.",
+      year: "Certified"
+    },
+    {
+      title: "Cisco: Python Essentials",
+      issuer: "Cisco Networking Academy",
+      detail: "Core Python syntax, data structures, and algorithms.",
+      year: "Certified"
+    },
+    {
+      title: "Cisco: Networking Basics",
+      issuer: "Cisco Networking Academy",
+      detail: "Network architectures, protocols, and routing concepts.",
       year: "Certified"
     },
     {
@@ -98,14 +110,14 @@ const AchievementsSection: React.FC = () => {
           transition={{ duration: 0.6 }}
           className="text-center space-y-4"
         >
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-xs font-mono text-cyan-300">
-            <Sparkles className="w-3.5 h-3.5 text-purple-400" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-slate-300">
+            <Sparkles className="w-3.5 h-3.5 text-white" />
             <span>HONORS & CERTIFICATIONS</span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-extrabold font-heading text-white">
-            Achievements & <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent">Certifications</span>
+            Achievements & <span className="gradient-text-primary">Certifications</span>
           </h2>
-          <p className="text-slate-400 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+          <p className="text-slate-400 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed font-light">
             Competitive programming rankings, hackathon accolades, and industry credentials from official resume.
           </p>
         </motion.div>
@@ -142,14 +154,14 @@ const AchievementsSection: React.FC = () => {
             className="lg:col-span-6 space-y-6"
           >
             <h3 className="text-xl font-bold text-white font-heading flex items-center gap-2">
-              <Award className="w-5 h-5 text-purple-400" /> Official Certifications
+              <Award className="w-5 h-5 text-white" /> Official Certifications
             </h3>
 
             <div className="space-y-4">
               {certificates.map((cert, idx) => (
-                <div key={idx} className="glass-card p-5 border-white/10 rounded-2xl flex items-center justify-between gap-4 hover:border-purple-500/40 transition-colors">
+                <div key={idx} className="glass-card p-5 border-white/10 rounded-2xl flex items-center justify-between gap-4 hover:border-white/30 transition-colors">
                   <div className="flex items-start gap-3.5">
-                    <div className="p-2.5 rounded-xl bg-purple-500/15 text-purple-400 border border-purple-500/20 shrink-0">
+                    <div className="p-2.5 rounded-xl bg-white/5 text-white border border-white/10 shrink-0">
                       <CheckCircle2 className="w-5 h-5" />
                     </div>
                     <div>
@@ -157,7 +169,7 @@ const AchievementsSection: React.FC = () => {
                       <p className="text-xs text-slate-400">{cert.issuer} • {cert.detail}</p>
                     </div>
                   </div>
-                  <span className="text-xs font-mono px-3 py-1 rounded-full bg-slate-900 border border-white/10 text-cyan-300 shrink-0">
+                  <span className="text-xs font-mono px-3 py-1 rounded-full bg-white/5 border border-white/10 text-slate-300 shrink-0">
                     {cert.year}
                   </span>
                 </div>
