@@ -93,10 +93,10 @@ const AboutSection = () => {
                 <Code2 className="w-5 h-5 text-purple-400" /> Executive Professional Summary
               </h3>
               <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-                I am a B.Tech Information Technology student at <strong className="text-white">Gayatri Vidya Parishad College of Engineering</strong> (SGPA: 8.33) and a <strong className="text-cyan-400">Frontend Developer Intern at CrowdStrike</strong>.
+                Dynamic Software Developer and former Frontend Intern at CrowdStrike, blending robust full-stack engineering with applied Machine Learning expertise.
               </p>
               <p className="text-slate-300 text-sm leading-relaxed">
-                Specialized in building full-stack web applications using <span className="text-purple-300 font-medium">React.js, Node.js, Express.js, MongoDB, and MySQL</span>. Solved <strong className="text-white">200+ problem challenges on LeetCode (Rating: 1742)</strong> with strong foundation in Data Structures, Algorithms, C++, and Python.
+                Adept at architecting scalable web applications (<span className="text-purple-300 font-medium">React.js, Node.js, MERN</span>) and integrating predictive ML models to build intelligent systems. Backed by exceptional algorithmic problem-solving skills (<strong className="text-white">LeetCode Rating: 1742, 200+ solved</strong>) and a strong foundation in C++ and Python, I am passionate about delivering optimized, data-driven software solutions.
               </p>
             </div>
 

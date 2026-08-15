@@ -11,7 +11,7 @@ const EducationSection: React.FC = () => {
       period: "Nov 2022 – June 2026",
       score: "SGPA: 8.33",
       scoreType: "College SGPA",
-      status: "Pursuing",
+      status: "Completed",
       color: "from-blue-500/20 via-indigo-500/10 to-transparent",
       borderColor: "border-blue-500/30 hover:border-blue-500/60",
       badgeColor: "bg-blue-500/10 text-blue-300 border-blue-500/30",

@@ -91,7 +91,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResume }) => {
 
           {/* Introduction Paragraph */}
           <p className="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed font-light">
-            Crafting elegant, high-performance web applications. Focused on seamless user experiences, scalable backend architecture, and writing clean, maintainable code.
+            Crafting elegant, high-performance web applications and intelligent systems. Focused on seamless user experiences, scalable backend architecture, and integrating predictive ML models.
           </p>
 
           {/* CTA Action Buttons */}
