@@ -27,23 +27,23 @@ interface Project {
 const ProjectsSection: React.FC = () => {
   const projects: Project[] = [
     {
-      id: "aiflow",
-      title: "AIFlow Builder",
-      subtitle: "Multi-Tenant AI Agent Workflow Engine",
-      category: "Full Stack AI SaaS",
-      description: "Engineered a multi-tenant AI workflow orchestration platform with organization-level data isolation, role-based access control (RBAC), and serverless execution supporting Gemini-powered LLM steps.",
+      id: "elitehire",
+      title: "EliteHire - Job Portal Web Application",
+      subtitle: "Full-Stack Career & Recruitment Platform",
+      category: "Full Stack Web App",
+      description: "Full-stack job portal featuring role-based JWT authentication, ATS scoring, resume uploads via Multer, real-time application tracking, and an admin dashboard.",
       highlights: [
-        "Two-layer authorization & RBAC enforced via Hasura GraphQL permissions.",
-        "Serverless execution engine with HTTP webhooks, 3× auto-retry, and approval gates.",
-        "Real-time tracking using Next.js & GraphQL subscriptions, plus atomic tenant quotas."
+        "Developed EliteHire with JWT auth & role-based access for students & recruiters.",
+        "Modular backend with search, filtering, pagination, job saving, and admin dashboard.",
+        "Implemented ATS scoring, status actions, Multer uploads & integrated SMTP email."
       ],
-      techStack: ["Next.js", "TypeScript", "Hasura GraphQL", "PostgreSQL", "Nhost", "Gemini API"],
-      image: aiflowImg,
-      githubUrl: "https://github.com/Akhilakhi1327/AIFlow_Builder",
-      liveDemoUrl: "https://ai-flow-builder-seven.vercel.app/",
-      featuredIcon: <Bot className="w-5 h-5 text-indigo-400" />,
-      accentGradient: "from-indigo-500 to-purple-500",
-      borderColor: "group-hover:border-indigo-500/50"
+      techStack: ["React.js", "Node.js", "Express.js", "MongoDB", "Redux Toolkit", "JWT", "Multer"],
+      image: elitehireImg,
+      githubUrl: "https://github.com/Akhilakhi1327/EliteHire",
+      liveDemoUrl: "https://elite-hire-indol.vercel.app/",
+      featuredIcon: <Briefcase className="w-5 h-5 text-purple-400" />,
+      accentGradient: "from-purple-500 to-blue-500",
+      borderColor: "group-hover:border-purple-500/50"
     },
     {
       id: "apexpredict",
@@ -65,23 +65,23 @@ const ProjectsSection: React.FC = () => {
       borderColor: "group-hover:border-green-500/50"
     },
     {
-      id: "elitehire",
-      title: "EliteHire - Job Portal Web Application",
-      subtitle: "Full-Stack Career & Recruitment Platform",
-      category: "Full Stack Web App",
-      description: "Full-stack job portal featuring role-based JWT authentication, ATS scoring, resume uploads via Multer, real-time application tracking, and an admin dashboard.",
+      id: "house-of-induva",
+      title: "House Of Induva",
+      subtitle: "Fashion Catalog E-Commerce Website",
+      category: "Luxury E-Commerce",
+      description: "A luxury fashion catalog e-commerce platform designed for apparel browsing, dynamic category filtering, interactive product image showcases, shopping cart persistence, and checkout experience.",
       highlights: [
-        "Developed EliteHire with JWT auth & role-based access for students & recruiters.",
-        "Modular backend with search, filtering, pagination, job saving, and admin dashboard.",
-        "Implemented ATS scoring, status actions, Multer uploads & integrated SMTP email."
+        "Interactive fashion product catalog with high-res galleries.",
+        "Dynamic shopping cart & instant price calculations.",
+        "Responsive luxury UI aesthetics optimized for mobile and desktop."
       ],
-      techStack: ["React.js", "Node.js", "Express.js", "MongoDB", "Redux Toolkit", "JWT", "Multer"],
-      image: elitehireImg,
-      githubUrl: "https://github.com/Akhilakhi1327/EliteHire",
-      liveDemoUrl: "https://elite-hire-indol.vercel.app/",
-      featuredIcon: <Briefcase className="w-5 h-5 text-purple-400" />,
-      accentGradient: "from-purple-500 to-blue-500",
-      borderColor: "group-hover:border-purple-500/50"
+      techStack: ["React.js", "Tailwind CSS", "Node.js", "Express.js", "MongoDB", "Framer Motion"],
+      image: induvaImg,
+      githubUrl: "https://github.com/Akhilakhi1327/House-Of-Induva",
+      liveDemoUrl: "https://fashion-catlog.vercel.app/",
+      featuredIcon: <ShoppingBag className="w-5 h-5 text-cyan-400" />,
+      accentGradient: "from-blue-500 to-cyan-400",
+      borderColor: "group-hover:border-cyan-500/50"
     },
     {
       id: "trackfleet",
@@ -103,23 +103,23 @@ const ProjectsSection: React.FC = () => {
       borderColor: "group-hover:border-emerald-500/50"
     },
     {
-      id: "house-of-induva",
-      title: "House Of Induva",
-      subtitle: "Fashion Catalog E-Commerce Website",
-      category: "Luxury E-Commerce",
-      description: "A luxury fashion catalog e-commerce platform designed for apparel browsing, dynamic category filtering, interactive product image showcases, shopping cart persistence, and checkout experience.",
+      id: "aiflow",
+      title: "AIFlow Builder",
+      subtitle: "Multi-Tenant AI Agent Workflow Engine",
+      category: "Full Stack AI SaaS",
+      description: "Engineered a multi-tenant AI workflow orchestration platform with organization-level data isolation, role-based access control (RBAC), and serverless execution supporting Gemini-powered LLM steps.",
       highlights: [
-        "Interactive fashion product catalog with high-res galleries.",
-        "Dynamic shopping cart & instant price calculations.",
-        "Responsive luxury UI aesthetics optimized for mobile and desktop."
+        "Two-layer authorization & RBAC enforced via Hasura GraphQL permissions.",
+        "Serverless execution engine with HTTP webhooks, 3× auto-retry, and approval gates.",
+        "Real-time tracking using Next.js & GraphQL subscriptions, plus atomic tenant quotas."
       ],
-      techStack: ["React.js", "Tailwind CSS", "Node.js", "Express.js", "MongoDB", "Framer Motion"],
-      image: induvaImg,
-      githubUrl: "https://github.com/Akhilakhi1327/House-Of-Induva",
-      liveDemoUrl: "https://fashion-catlog.vercel.app/",
-      featuredIcon: <ShoppingBag className="w-5 h-5 text-cyan-400" />,
-      accentGradient: "from-blue-500 to-cyan-400",
-      borderColor: "group-hover:border-cyan-500/50"
+      techStack: ["Next.js", "TypeScript", "Hasura GraphQL", "PostgreSQL", "Nhost", "Gemini API"],
+      image: aiflowImg,
+      githubUrl: "https://github.com/Akhilakhi1327/AIFlow_Builder",
+      liveDemoUrl: "https://ai-flow-builder-seven.vercel.app/",
+      featuredIcon: <Bot className="w-5 h-5 text-indigo-400" />,
+      accentGradient: "from-indigo-500 to-purple-500",
+      borderColor: "group-hover:border-indigo-500/50"
     }
   ];
 
